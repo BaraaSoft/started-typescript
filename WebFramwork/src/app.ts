@@ -1,4 +1,6 @@
+import { FloatingActionButton } from 'materialize-css';
 import moment from 'moment';
+// import '@types/materialize-css';
 import { AddUserView } from './views/addUser.view';
 import { ListUsersView } from './views/listUsers.view';
 
@@ -18,5 +20,11 @@ window.onload = function () {
 
 }
 
-//console.log("Hello Typescript!:", moment('05-11-2020').calendar())
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances: FloatingActionButton[] = M.FloatingActionButton.init(elems, { direction: 'top' });
+    // instances[0].open()
+});
+
+
 
