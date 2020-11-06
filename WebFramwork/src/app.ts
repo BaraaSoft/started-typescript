@@ -10,20 +10,21 @@ import { ListUsersView } from './views/listUsers.view';
 window.onload = function () {
 
     let currentUrl = window.location.href;
-    const [viewName,] = currentUrl.split('/').reverse()
+    const [fullViewName,] = currentUrl.split('/').reverse()
+    const [viewName,] = fullViewName.split('.')
     switch (viewName) {
-        case 'addUser.html':
+        case 'addUser':
             new AddUserView()
-        case 'listUsers.html':
+        case 'listUsers':
             new ListUsersView()
     }
 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    /**** Setup floating action button ****/
     var elems = document.querySelectorAll('.fixed-action-btn');
-    var instances: FloatingActionButton[] = M.FloatingActionButton.init(elems, { direction: 'top' });
-    // instances[0].open()
+    var [instance,]: FloatingActionButton[] = M.FloatingActionButton.init(elems, { direction: 'top' });
 });
 
 
