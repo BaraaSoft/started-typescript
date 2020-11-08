@@ -15,6 +15,4 @@ export class RemoteUserRepository implements IUserRepository {
     all(page: Number): User[] {
         throw new Error('Method not implemented.');
     }
-
-
 }

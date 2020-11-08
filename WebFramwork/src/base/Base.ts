@@ -1,8 +1,8 @@
 
 export interface Presenter<T> {
     refresh?(): void
-    load(view: T): void
-    destroy(): void
+    onMount(view: T): void
+    onUnmount(): void
 }
 export interface View {
     goback(): void;
