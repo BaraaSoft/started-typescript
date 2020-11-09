@@ -11,9 +11,9 @@ export interface Model extends Base.Model {
 }
 
 export interface Presenter extends Base.Presenter<View> {
-    onUsernameChange(username: string): void
+    onFirstnameChange(name: string): void
+    onLastnameChange(lname: string): void
     onEmailChange(email: string): void
-    onFullNameChange(name: string): void
-    onPhoneChange(phone: number): void
+    onBirthdate(date: string): void
     onSave(): void
 }

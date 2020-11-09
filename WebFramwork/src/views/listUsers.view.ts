@@ -1,9 +1,12 @@
+import { sha256 } from 'hash.js'
+const hash = sha256().update('abc').digest('hex')
 type Callback = () => void
 export class ListUsersView {
     events: { [key: string]: Callback[] }
     constructor() {
         let elm = document.getElementById('title')
-        elm.innerHTML = "List Users View"
+        elm.innerHTML = `List Users View: ${hash}`
+
     }
 
     on(eventName: string, callback: Callback): void {
