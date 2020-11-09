@@ -1,24 +1,35 @@
-import * as IAddUser from './IAddUser'
+import * as AddUserMVP from './AddUserMVP'
 
 type Callback = () => void
-export class AddUserView implements IAddUser.View {
+export class AddUserView implements AddUserMVP.View {
 
-    presenter: IAddUser.Presenter
+    presenter: AddUserMVP.Presenter
     events: { [key: string]: Callback[] }
+    successModel: M.Modal
 
-    constructor(userPresenter: IAddUser.Presenter) {
+    constructor(userPresenter: AddUserMVP.Presenter) {
         this.presenter = userPresenter
         this.presenter.onMount(this)
-
+        // Init birthdate picker
         var elems = document.querySelectorAll('.datepicker');
         var instances = M.Datepicker.init(elems, {});
 
+        // Init success modal
+        var elems = document.querySelectorAll('.modal');
+        this.successModel = M.Modal.init(elems, { dismissible: true })[0]
+
+        // register create new user
+        let createUserBtn = document.querySelector(".main-btn :first-child")
+        console.log(createUserBtn)
+        createUserBtn.addEventListener('click', (e) => {
+            this.presenter.onSave()
+            this.successModel.open()
+        })
 
     }
 
     showSuccessMessage(message: string): void {
-        throw new Error('Method not implemented.');
-
+        this.successModel.open()
     }
     showErrorMessage(message: String): void {
         throw new Error('Method not implemented.');

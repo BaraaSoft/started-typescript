@@ -1,5 +1,5 @@
 import { User } from '../entities/User';
-import * as IAddUser from './IAddUser'
+import * as IAddUser from './AddUserMVP'
 export class AddUserPresenter implements IAddUser.Presenter {
     user: User = {}
     view: IAddUser.View
@@ -18,7 +18,7 @@ export class AddUserPresenter implements IAddUser.Presenter {
         this.user.birthdate = date
     }
     onSave(): void {
-        throw new Error('Method not implemented.');
+
     }
     refresh?(): void {
         throw new Error('Method not implemented.');

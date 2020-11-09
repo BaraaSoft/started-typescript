@@ -1,5 +1,5 @@
 import * as Base from '../base/Base'
-import { User } from './../entities/User';
+import { User } from '../entities/User';
 
 export interface View extends Base.View {
     showSuccessMessage(message: string): void
