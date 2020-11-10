@@ -5,7 +5,7 @@ export class AddUserView implements AddUserMVP.View {
 
     presenter: AddUserMVP.Presenter
     events: { [key: string]: Callback[] }
-    successModel: M.Modal
+    successModal: M.Modal
 
     constructor(userPresenter: AddUserMVP.Presenter) {
         this.presenter = userPresenter
@@ -16,20 +16,20 @@ export class AddUserView implements AddUserMVP.View {
 
         // Init success modal
         var elems = document.querySelectorAll('.modal');
-        this.successModel = M.Modal.init(elems, { dismissible: true })[0]
+        this.successModal = M.Modal.init(elems, { dismissible: true })[0]
 
         // register create new user
         let createUserBtn = document.querySelector(".main-btn :first-child")
         console.log(createUserBtn)
         createUserBtn.addEventListener('click', (e) => {
             this.presenter.onSave()
-            this.successModel.open()
+            this.successModal.open()
         })
 
     }
 
     showSuccessMessage(message: string): void {
-        this.successModel.open()
+        this.successModal.open()
     }
     showErrorMessage(message: String): void {
         throw new Error('Method not implemented.');
