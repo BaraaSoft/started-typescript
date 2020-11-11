@@ -4,7 +4,7 @@ type Callback = () => void
 export class AddUserView implements AddUserMVP.View {
 
     presenter: AddUserMVP.Presenter
-    events: { [key: string]: Callback[] }
+    events?: { [key: string]: Callback[] } = {}
     successModal: M.Modal
 
     constructor(userPresenter: AddUserMVP.Presenter) {
@@ -21,7 +21,7 @@ export class AddUserView implements AddUserMVP.View {
         // register create new user
         let createUserBtn = document.querySelector(".main-btn :first-child")
         console.log(createUserBtn)
-        createUserBtn.addEventListener('click', (e) => {
+        createUserBtn?.addEventListener('click', (e) => {
             this.presenter.onSave()
             this.successModal.open()
         })
@@ -32,15 +32,16 @@ export class AddUserView implements AddUserMVP.View {
         this.successModal.open()
     }
     showErrorMessage(message: String): void {
-        throw new Error('Method not implemented.');
+        // throw new Error('Method not implemented.');
     }
     goback(): void {
-        throw new Error('Method not implemented.');
+        // throw new Error('Method not implemented.');
     }
 
     on(eventName: string, callback: Callback): void {
-        this.events[eventName] = this.events[eventName] || []
-        this.events[eventName].push(callback)
+
+        this.events![eventName] = this.events?.[eventName] || []
+        // this.events ? [eventName].push(callback)
     }
 
 }

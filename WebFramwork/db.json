@@ -1,6 +1,7 @@
 {
-    "user": [
+    "users": [
         {
+            "id": 1,
             "firstname": "Baraa",
             "lastname": "Mirghani",
             "email": "b.abuzaid@maxnet-sd.com",

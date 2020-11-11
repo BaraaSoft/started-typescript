@@ -1,9 +1,10 @@
+import 'regenerator-runtime/runtime'
 import { FloatingActionButton } from 'materialize-css';
 import moment from 'moment';
 import { AddUserPresenter } from './addUser/AddUser.presenter';
 // import '@types/materialize-css';
 import { AddUserView } from './addUser/AddUser.view';
-import { ListUsersView } from './views/listUsers.view';
+
 
 
 
@@ -17,7 +18,6 @@ window.onload = function () {
         case 'addUser':
             new AddUserView(new AddUserPresenter())
         case 'listUsers':
-            new ListUsersView()
     }
 
 }

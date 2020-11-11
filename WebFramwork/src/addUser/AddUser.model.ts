@@ -1,7 +1,7 @@
 import { User } from '../entities/User';
-import * as IAddUser from './IAddUser'
+import * as AddUserMVP from './AddUserMVP'
 
-class AddUserModel implements IAddUser.Model {
+class AddUserModel implements AddUserMVP.Model {
     saveUser(user: User): boolean {
         throw new Error('Method not implemented.');
     }
