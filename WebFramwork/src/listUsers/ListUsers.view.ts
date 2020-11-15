@@ -8,14 +8,13 @@ export class ListUsers extends ComponentView {
     }
 
     onHover = (e: Event) => {
-        console.log(e)
-        alert('Hover')
+        const elm = (e.target as HTMLElement)
+        elm.classList.contains('color-full') ? elm.classList.remove('color-full') : elm.classList.add('color-full')
     }
 
 
 
     render(): string {
-
         return `
             <div id="xtitle">
                 <h2> All Users</h2>

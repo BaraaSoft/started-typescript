@@ -13,15 +13,12 @@ export abstract class ComponentView implements IComponent {
     abstract render(): string;
     public addEvent<K extends keyof DocumentEventMap>(eventType: K, docId: string, event: (e: Event) => void): void {
         this.eventMap[eventType + ':' + docId] = event;
-        console.log(this.eventMap)
-
     }
 
     registerEvents(): void {
-        for (let eventObj in this.eventMap) {
-            const [eventType, docId] = eventObj.split(':')
-            console.log(eventType, docId, this.eventMap[eventType + ':' + docId])
-            document.querySelector(docId)!.addEventListener(eventType, () => this.eventMap[eventType + ':' + docId](new Event("s")))
+        for (let eventName in this.eventMap) {
+            const [eventType, docId] = eventName.split(':')
+            document.querySelector(docId)!.addEventListener(eventType, this.eventMap[eventName])
         }
     }
     mount(): void {
