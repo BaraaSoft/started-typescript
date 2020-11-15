@@ -28,6 +28,8 @@ export class AddUserView implements AddUserMVP.View {
 
     }
 
+
+
     showSuccessMessage(message: string): void {
         this.successModal.open()
     }

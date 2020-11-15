@@ -5,7 +5,10 @@ export interface Presenter<T> {
     onUnmount(): void
 }
 export interface View {
-    goback(): void;
+    parent: HTMLElement | null
+    template(): string;
+    render(): void
+
 }
 export interface Model {
 

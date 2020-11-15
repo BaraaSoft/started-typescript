@@ -1,4 +1,4 @@
-import * as Base from '../base/Base'
+import * as Base from '../base/IBase'
 import { User } from '../entities/User';
 
 export interface View extends Base.View {
