@@ -11,7 +11,7 @@ import { IComponent } from './base/IComponent';
 
 
 
-window.onload = function () {
+function main() {
 
     let currentUrl = window.location.href;
     const [fullViewName,] = currentUrl.split('/').reverse()
@@ -31,8 +31,14 @@ window.onload = function () {
             // }, 3000)
             break;
     }
-
 }
+
+
+
+window.onload = () => main()
+window.addEventListener('popstate', function (event) {
+    main()
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     /**** Setup floating action button ****/
